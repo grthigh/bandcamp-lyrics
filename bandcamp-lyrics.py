@@ -80,5 +80,5 @@ if __name__ == '__main__':
         name = link[index:]
         name = name.replace('-', ' ').title()
         save_lyrics(text)
-    print("I have good news:\n  All of the album lyrics  has been saved")
+    print("I have a good news:\n  All of the album lyrics  has been saved")
 
