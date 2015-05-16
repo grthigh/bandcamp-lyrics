@@ -2,9 +2,10 @@
 Download Lyrics Albums on Bandcamp using only the url of the album
 
 # Installation 
-1. Clone the progect, download the zip file or just download the script
+1. Clone the progect, download [the zip file](https://github.com/grthigh/bandcamp-lyrics/archive/master.zip) or just download the script
 2. Put it in whatever folder you like
 3. cd to the directory that contains bandcamp-lyrics.py file
+4. use 'pip -r requiremtents.txt' to download BeatifulSoup4 if you don't already had it.
 
 # Description 
 This is an automated tool that download the lyrics of some albums from Bandcamp. It requires Python 3 and an Internet connection of course.
