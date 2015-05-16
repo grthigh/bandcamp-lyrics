@@ -13,7 +13,7 @@ def get_database(url):
         with urllib.request.urlopen(url) as response:
             data = response.read()
     except:
-        print("Make sure you're connection is working.")
+        print("Make sure your connection is working.")
         exit()
     index = url.index('.com') + 4
     url = url[:index]
@@ -73,12 +73,12 @@ if __name__ == '__main__':
         os.chdir(output_folder)
     else:
         print(("You didn't specify a valid folder. I'll set one for you on" +
-                " The same folder as this script. "))
+                " the same folder as this script. "))
     for link in urls:
         text = get_page(link)
         index = link.index('track/') + 6
         name = link[index:]
         name = name.replace('-', ' ').title()
         save_lyrics(text)
-    print("I have a good news:\n  All of the Album lyricses  has been saved :)")
+    print("I have good news:\n  All of the album lyrics  has been saved")
 
