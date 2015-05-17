@@ -12,16 +12,18 @@ This is an automated tool that download the lyrics of some albums from Bandcamp.
 
 # Requiremtents 
    BeautifulSoup4
+   
+   Docopt
 # Deatils
-Usage:
-  bandcamp-lyrics.py <url> [--output=<folder>]
-  bandcamp-lyrics.py (-h | --help)
-  bandcamp-lyrics.py (--version)
+    Usage:
+     bandcamp-lyrics.py <url> [--output=<folder>]
+     bandcamp-lyrics.py (-h | --help)
+     bandcamp-lyrics.py (--version)
 
-Options:
-  -h --help                 Show this screen.
-  -v --version              Show version.
-  -o --output=<folder>      Store the lyrics in this folder.
+    Options:
+     -h --help                 Show this screen.
+     -v --version              Show version.
+     -o --output=<folder>      Store the lyrics in this folder.
 # Dependencies
 
 * [Python3](https://www.python.org/downloads/) - Python 3.2 or later
