@@ -1,10 +1,21 @@
 #!/usr/bin/python3
 # Get Album lyrics from Bandcamp website and save 'em
 
+"""bandcamp-lyrics
+Usage:
+  bandcamp-lyrics.py <url> [--output=<folder>]
+  bandcamp-lyrics.py (-h | --help)
+  bandcamp-lyrics.py (--version)
+
+Options:
+  -h --help                 Show this screen.
+  -v --version              Show version.
+  -o --output=<folder>      Store the lyrics in this folder.
+"""
+from docopt import docopt
+import os
 import urllib.request
 from bs4 import BeautifulSoup
-import argparse
-import os
 
 def get_database(url):
     links = []
@@ -54,31 +65,23 @@ def save_lyrics(text):
     print(('This lyrics track: {0} has been saved successfully.'.format(name)))
 
 if __name__ == '__main__':
-    info = "Download Album lyrics from bandcamp."
-    parser = argparse.ArgumentParser(description=info)
-    parser.add_argument("url", help="The url of the album")
-    parser.add_argument("-o", type=str, help="Save they lyrics in this folder")
-    args = parser.parse_args()
-    url = args.url
-    output_folder = args.o
+    arguments = docopt(__doc__, version='bandcamp-lyrics 2.1')
+    url = arguments['<url>']
     handle_url = url.find('http')
     if handle_url == -1:
         url = "http://" + url
     urls = get_database(url)
-    if not args.o:
+    if arguments['--output']:
+        if os.path.exists(arguments['--output']):
+            os.chdir(arguments['--output'])
+    else:
         os.makedirs('lyrics')
         os.chdir('lyrics')
         print("The lyrics folder has been created to store the lyrics there")
-    elif os.path.exists(output_folder):
-        os.chdir(output_folder)
-    else:
-        print(("You didn't specify a valid folder. I'll set one for you on" +
-                " the same folder as this script. "))
     for link in urls:
         text = get_page(link)
         index = link.index('track/') + 6
-        name = link[index:]
-        name = name.replace('-', ' ').title()
+        name = link[index:].replace('-', ' ').title()
         save_lyrics(text)
     print("I have a good news:\n  All of the album lyrics  has been saved")
 
