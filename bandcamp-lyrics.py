@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Get Album lyrics from Bandcamp website and save 'em
+# Get Album lyrics from Bandcamp website and save them
 
 """Usage:
   bandcamp-lyrics.py <url> [--output=<folder>]
@@ -55,4 +55,4 @@ if __name__ == '__main__':
         os.makedirs('lyrics')
         os.chdir('lyrics')
     main(url)
-    print("I have a good news:\n  All of the album lyrics  has been saved")
+    print("Good news:\n  Album's lyricses has been saved successfully.")
